@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Workout Timer</title>
+
+    <!--
+      This 3rd-party stylesheet incorporates SVG icons from Font Awesome:
+      http://fontawesome.com/.  Specifically, each of the <i> elements below
+      incorporates an icon from Font Awesome.
+    -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.runtime.js"></script>
+    
+    <script src="/workoutTemplate.js"></script>
+    <script src="/index.js" charset="utf-8" defer></script>
+
+  </head>
+  <body>
+
+    <header>
+
+      <h1 class="site-title"><a href="#">Workout Timer</a></h1>
+
+    </header>
+
+    <main class="content">
+
+
+      <section id="workouts">
+
+        {{#each workouts}}
+        {{>workoutTemplate}}
+        {{/each}}
+
+      </section>
+
+      <section id="quote">
+        <div class="quoteBlock">
+          <p id="quote-text">"quote text goes here"</p>
+          <p id="quote-author">- quote author goes here</p>
+        </div>
+      </section>
+
+    </main>
+
+    <button type="button" id="remove-workout-button" title="Remove Workout"><i class="fa fa-plus"></i></button>
+
+    <button type="button" id="add-workout-button" title="Add New Workout"><i class="fa fa-plus"></i></button>
+
+
+
+
+
+    <div id="modal-backdrop" class="hidden"></div>
+
+    <div id="add-workout-modal" class="hidden">
+      <div class="modal-dialog">
+
+        <div class="modal-header">
+          <h3>Add a New Workout Timer</h3>
+          <button type="button" id="modal-close" class="modal-hide-button">&times;</button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="workout-input-element">
+            <label for="workout-text-input">Workout Title</label>
+            <input type="text" id="workout-text-input"></input>
+          </div>
+
+          <div class="workout-input-element">
+            <label for="workout-text-input">Exercise Name</label>
+            <input type="text" id="exercise-text-input"></input>
+          </div>
+
+          <div class="workout-input-element">
+            <label for="workout-text-input">Exercise Duration</label>
+            <input type="text" id="exercise-duration-input"></input>
+          </div>
+
+          <button type="button" id="add-exercise" title="Add Exercise"><i class="fa fa-plus"></i></button>
+
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" id="modal-cancel" class="modal-hide-button action-button">Cancel</button>
+          <button type="button" id="workout-accept" class="action-button">Create Timer</button>
+        </div>
+
+      </div>
+    </div>
+
+
+    <div id="do-workout-modal" class="hidden">
+      <div class="modal-dialog">
+
+        <div class="modal-header">
+          <h3>workout title goes here</h3>
+          <button type="button" id="modal-close" class="modal-hide-button" style="color:white">&times;</button>
+        </div>
+
+        <div class="modal-body">
+
+          <div class="exercise-name-element">
+            <label for="workout-text-input">Exercise: </label>
+            <span id="exercise-name">exercise name goes here</span>
+          </div>
+          
+          <div class="time-remaining-element">
+            <label for="workout-text-input">Time Remaining: </label>
+            <span id="time-remaining">time remaining goes here</span>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" id="modal-cancel" class="modal-hide-button action-button">Cancel</button>
+        </div>
+
+      </div>
+    </div>
+
+    <div id="exit-save-modal" class="hidden">
+      <div class="modal-dialog">
+
+        <div class="modal-header">
+          <h3>Are you sure you want to exit? Your workouts will be saved</h3>
+          <button type="button" id="modal-close" class="modal-hide-button">&times;</button>
+        </div>
+
+
+        <div class="modal-footer">
+          <button type="button" id="exit-cancel" class="modal-hide-button action-button">Cancel</button>
+          <button type="button" id="exit-accept" class="action-button">Save and Exit</button>
+        </div>
+
+      </div>
+    </div>
+
+
+
+
+  </body>
+</html>

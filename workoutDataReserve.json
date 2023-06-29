@@ -1,0 +1,90 @@
+[
+  {
+    "title": "HIIT",
+    "totalDuration": "0m 50s",
+    "exercises": [
+      {
+        "title": "Pushups",
+        "duration": "10"
+      },
+      {
+        "title": "Squats",
+        "duration": "10"
+      },
+      {
+        "title": "Jumping Jacks",
+        "duration": "10"
+      },
+      {
+        "title": "Burpees",
+        "duration": "10"
+      },
+      {
+        "title": "Plank",
+        "duration": "10"
+      }
+    ]
+  },
+  {
+    "title": "Tabata",
+    "totalDuration": "0m 30s",
+    "exercises": [
+      {
+        "title": "Pushup",
+        "duration": "10"
+      },
+      {
+        "title": "Side Plank",
+        "duration": "10"
+      },
+      {
+        "title": "Superman",
+        "duration": "10"
+      }
+    ]
+  },
+  {
+    "title": "Cardio",
+    "totalDuration": "2m 30s",
+    "exercises": [
+      {
+        "title": "run in place",
+        "duration": "60"
+      },
+      {
+        "title": "Jumping Jack Squats",
+        "duration": "30"
+      },
+      {
+        "title": "Jumping Jacks",
+        "duration": "60"
+      }
+    ]
+  },
+  {
+    "title": "Strength",
+    "totalDuration": "2m 30s",
+    "exercises": [
+      {
+        "title": "Wide Pushups",
+        "duration": "30"
+      },
+      {
+        "title": "Narrow Pushups",
+        "duration": "30"
+      },
+      {
+        "title": "Normal Pushups",
+        "duration": "30"
+      },
+      {
+        "title": "Staggered (right arm forward)",
+        "duration": "30"
+      },
+      {
+        "title": "Staggered (left arm forward)",
+        "duration": "30"
+      }
+    ]
+  }
+]
