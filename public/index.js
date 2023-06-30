@@ -10,6 +10,7 @@ let endWorkout = 0
 async function getWorkoutInfo(title){
 
     var workoutURL = '/workouts/' + title
+
     var response = await fetch(workoutURL)
 
     var workout = await response.json()
@@ -24,7 +25,6 @@ async function workoutClicked(event){
     var title = workoutElement.getElementsByClassName("workout-title")[0].innerHTML
 
     var workoutInfo = await getWorkoutInfo(title)
-
 
     showWorkoutModal()
 

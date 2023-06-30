@@ -1,120 +1,116 @@
-// var path = require('path');
-var fs = require('fs');
 var express = require('express');
 var exphbs = require('express-handlebars');
-const amqp = require("amqplib/callback_api");
+const { MongoClient } = require('mongodb');
 const axios = require("axios");
 
-var workoutData = require('./workoutData.json')
+var mongoPassword = process.env.MONGO_PASSWORD;
+const uri =
+  'mongodb+srv://sankalpsp21:' +
+  mongoPassword +
+  "@quotable-workouts.dhewxoj.mongodb.net";
 
-//Setting up the engine
-var app = express();
-var port = process.env.PORT || 3333;
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
+async function connect() {
+  try {
+    await client.connect();
 
-app.engine('handlebars', exphbs.engine({ defaultLayout: null }))
-app.set('view engine', 'handlebars')
+    const database = client.db('workouts_db');
+    const collection = database.collection('workouts');
 
-app.use(express.json())
+    var app = express();
+    var port = process.env.PORT || 3333;
 
-//Ensures that the css and script files are accesible
-app.use(express.static('public'));
+    app.engine('handlebars', exphbs.engine({ defaultLayout: null }));
+    app.set('view engine', 'handlebars');
 
+    app.use(express.json());
+    app.use(express.static('public'));
 
-//Handles the home page
-app.get('/', function (req, res) {
-  res.status(200).render('workoutsPage', {
-    workouts: workoutData
-  })
-})
-
-//Getting a specific workout
-app.get('/workouts/:name', function(req, res) {
-
-  var name = req.params.name.toLowerCase();
-
-  for(var i = 0; i < workoutData.length; i++) {
-    if(workoutData[i].title.toLowerCase() == name) {
-      res.status(200).send(workoutData[i]);
-      return;
-    }
-  }
-})
-
-//Adding workout to the database
-app.post('/workouts', function (req, res) {
-  var workout = req.body
-
-  var workout = {
-    title: req.body.title,
-    totalDuration: req.body.totalDuration,
-    exercises: req.body.exercises
-  }
-
-
-  workoutData.push(workout)
-
-
-
-  fs.writeFile(
-    './workoutData.json',
-    JSON.stringify(workoutData, null, 2),
-    function (err) {
-      if (err) {
-        res.status(500).send("Error writing workout to DB")
-      } else {
-        res.status(200).send("Workout successfully added!!!!!")
+    app.get('/', async function (req, res) {
+      try {
+        const workoutData = await collection.find().toArray();
+        res.status(200).render('workoutsPage', {
+          workouts: workoutData
+        });
+      } catch (err) {
+        console.error(err);
+        res.status(500).send('Error retrieving workouts from DB');
       }
-    }
-  )
+    });
 
-})
+    app.get('/workouts/:name', async function(req, res) {
+      try {
+        var name = req.params.name;
 
-//Requests quote from the microservice
-app.get('/quote', function (req, res) {
-  axios
-      .get("https://api.quotable.io/random")
-      .then(function(response) {
-        var quote = response.data.content;
-        var author = response.data.author;
-        console.log(quote + " - " + author);
-
-        data = {
-          quote: quote,
-          author: author
+        const workout = await collection.findOne({ title: name });
+        if (workout) {
+          res.status(200).send(workout);
+        } else {
+          res.status(404).send('Workout not found');
         }
-
-        res.status(200).send(data);
-      }) 
-})
-
-app.delete('/workouts', function (req, res) {
-  var workoutTitle = req.body.title
-
-  for(var i = 0; i < workoutData.length; i++) {
-    if(workoutData[i].title == workoutTitle) {
-      workoutData.splice(i, 1)
-      break
-    }
-  }
-
-  fs.writeFile(
-    './workoutData.json',
-    JSON.stringify(workoutData, null, 2),
-    function (err) {
-      if (err) {
-        res.status(500).send("Error removing workout from DB")
-      } else {
-        res.status(200).send("Workout successfully removed!!!!!")
+      } catch (err) {
+        console.error(err);
+        res.status(500).send('Error retrieving workout from DB');
       }
-    }
-  )
-})
+    });
 
-app.listen(port, function () {
-  console.log("== Server is listening on port", port);
-})
+    app.post('/workouts', async function (req, res) {
+      try {
+        var workout = {
+          title: req.body.title,
+          totalDuration: req.body.totalDuration,
+          exercises: req.body.exercises
+        };
 
+        const result = await collection.insertOne(workout);
+        res.status(200).send('Workout successfully added!');
+      } catch (err) {
+        console.error(err);
+        res.status(500).send('Error adding workout to DB');
+      }
+    });
 
+    app.get('/quote', function (req, res) {
+      axios.get("https://api.quotable.io/random")
+        .then(function(response) {
+          var quote = response.data.content;
+          var author = response.data.author;
 
+          data = {
+            quote: quote,
+            author: author
+          };
 
+          res.status(200).send(data);
+        })
+        .catch(function (error) {
+          console.error(error);
+          res.status(500).send('Error retrieving quote');
+        });
+    });
+
+    app.delete('/workouts', async function (req, res) {
+      try {
+        var workoutTitle = req.body.title;
+        const result = await collection.deleteOne({ title: workoutTitle });
+        if (result.deletedCount > 0) {
+          res.status(200).send('Workout successfully removed!');
+        } else {
+          res.status(404).send('Workout not found');
+        }
+      } catch (err) {
+        console.error(err);
+        res.status(500).send('Error removing workout from DB');
+      }
+    });
+
+    app.listen(port, function () {
+      console.log("== Server is listening on port", port);
+    });
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+connect();

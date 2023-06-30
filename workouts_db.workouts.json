@@ -1,0 +1,220 @@
+[
+  {
+    "title": "Yoga",
+    "totalDuration": "60s",
+    "exercises": [
+      {
+        "title": "Sun Salutations",
+        "duration": "10s"
+      },
+      {
+        "title": "Warrior II",
+        "duration": "5s"
+      },
+      {
+        "title": "Tree Pose",
+        "duration": "5s"
+      },
+      {
+        "title": "Downward Facing Dog",
+        "duration": "10s"
+      },
+      {
+        "title": "Child's Pose",
+        "duration": "5s"
+      }
+    ]
+  },
+  {
+    "title": "Circuit Training",
+    "totalDuration": "45s",
+    "exercises": [
+      {
+        "title": "Dumbbell Squats",
+        "duration": "10s"
+      },
+      {
+        "title": "Bench Press",
+        "duration": "8s"
+      },
+      {
+        "title": "Bent-Over Rows",
+        "duration": "8s"
+      },
+      {
+        "title": "Overhead Press",
+        "duration": "8s"
+      },
+      {
+        "title": "Plank",
+        "duration": "10s"
+      }
+    ]
+  },
+  {
+    "title": "Pilates",
+    "totalDuration": "40s",
+    "exercises": [
+      {
+        "title": "Hundreds",
+        "duration": "5s"
+      },
+      {
+        "title": "Roll-Ups",
+        "duration": "8s"
+      },
+      {
+        "title": "Single Leg Stretch",
+        "duration": "5s"
+      },
+      {
+        "title": "Double Leg Stretch",
+        "duration": "5s"
+      },
+      {
+        "title": "Swimming",
+        "duration": "10s"
+      }
+    ]
+  },
+  {
+    "title": "CrossFit",
+    "totalDuration": "55s",
+    "exercises": [
+      {
+        "title": "Box Jumps",
+        "duration": "8s"
+      },
+      {
+        "title": "Kettlebell Swings",
+        "duration": "10s"
+      },
+      {
+        "title": "Wall Balls",
+        "duration": "10s"
+      },
+      {
+        "title": "Deadlifts",
+        "duration": "8s"
+      },
+      {
+        "title": "Pull-Ups",
+        "duration": "8s"
+      }
+    ]
+  },
+  {
+    "title": "Zumba",
+    "totalDuration": "60s",
+    "exercises": [
+      {
+        "title": "Merengue",
+        "duration": "10s"
+      },
+      {
+        "title": "Salsa",
+        "duration": "10s"
+      },
+      {
+        "title": "Cumbia",
+        "duration": "10s"
+      },
+      {
+        "title": "Reggaeton",
+        "duration": "10s"
+      },
+      {
+        "title": "Bachata",
+        "duration": "10s"
+      }
+    ]
+  },
+  {
+    "title": "HIIT",
+    "totalDuration": "50s",
+    "exercises": [
+      {
+        "title": "Pushups",
+        "duration": "10s"
+      },
+      {
+        "title": "Squats",
+        "duration": "10s"
+      },
+      {
+        "title": "Jumping Jacks",
+        "duration": "10s"
+      },
+      {
+        "title": "Burpees",
+        "duration": "10s"
+      },
+      {
+        "title": "Plank",
+        "duration": "10s"
+      }
+    ]
+  },
+  {
+    "title": "Tabata",
+    "totalDuration": "30s",
+    "exercises": [
+      {
+        "title": "Pushup",
+        "duration": "10s"
+      },
+      {
+        "title": "Side Plank",
+        "duration": "10s"
+      },
+      {
+        "title": "Superman",
+        "duration": "10s"
+      }
+    ]
+  },
+  {
+    "title": "Cardio",
+    "totalDuration": "150s",
+    "exercises": [
+      {
+        "title": "run in place",
+        "duration": "60s"
+      },
+      {
+        "title": "Jumping Jack Squats",
+        "duration": "30s"
+      },
+      {
+        "title": "Jumping Jacks",
+        "duration": "60s"
+      }
+    ]
+  },
+  {
+    "title": "Strength",
+    "totalDuration": "150s",
+    "exercises": [
+      {
+        "title": "Wide Pushups",
+        "duration": "30s"
+      },
+      {
+        "title": "Narrow Pushups",
+        "duration": "30s"
+      },
+      {
+        "title": "Normal Pushups",
+        "duration": "30s"
+      },
+      {
+        "title": "Staggered (right arm forward)",
+        "duration": "30s"
+      },
+      {
+        "title": "Staggered (left arm forward)",
+        "duration": "30s"
+      }
+    ]
+  }
+]

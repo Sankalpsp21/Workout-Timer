@@ -1,325 +1,326 @@
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200&family=Poppins:wght@200;300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@100;200&family=Poppins:wght@200;300;400;500&family=Roboto+Slab:wght@200;300&display=swap');
 
+/* Global Styles */
 body {
-   font-family: 'Poppins', sans-serif;
-   margin: 0;
- }
- 
- a {
-   text-decoration: none;
-   color: #fefdfc;
- }
-
- main{
-  margin-top: 10px;
- }
- 
- a:hover {
-   text-decoration: underline;
- }
- 
- header {
-  /* background: linear-gradient(#F4EBD0, #f51e1e, #f12e23) #f80303; */
-  /* background: #e1bf02f5; */
-  background: #9191fd;
-   display: flex;
-   align-items: center;
-   position: relative;
-   height: 7em;
- }
-
- html{
-  background: #2c2b2b;
- }
- 
- header a {
-   color: #fff;
- }
- 
- .site-title {
-   font-family: "Roboto Slab", serif;
-   font-size: 80px;
-   font-weight: 100;
-   margin: 0 0 0 20px;
-   padding-top: 10px;
- }
- 
- .site-title a:hover {
-   text-decoration: none;
- }
- 
- .content {
-   height: 620px;
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   justify-content: space-between;
- }
- 
- .action-button {
-   font-size: 20px;
-   color: white;
-   padding: 10px;
-   background-color: #000;
-   border: 1px solid #ababab;
-   border-radius: 5px;
-   font-weight: lighter;
-   cursor: pointer;
- }
-
- .action-button:hover {
-   background-color: #f9d2b2;
-   border-color: #333;
-   color: #333;
- }
-
- #add-exercise{
-   font-size: 20px;
-   color: white;
-   padding: 10px;
-   background-color: #000;
-   border: 1px solid #050505;
-   border-radius: 5px;
-   font-weight: lighter;
-   cursor: pointer;
- }
- 
- .workout {
-   position: relative;
-   display: inline-block;
-   vertical-align: top;
-   height: 60px;
-   width: 300px;
-   margin: 10px;
-   padding: 10px;
-   border: 2px solid #fdfdfd;
-   border-radius: 3px;
-   transition: 0.25s
- }
-
- .workout:hover{
-  /* background-color: #635bf3; */
-  /* background: var(--clr); */
-  box-shadow: 0 0 35px var(--clr);
-  border: 2px solid var(--clr);
-
-}
- 
- .workout-contents {
-   display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: space-evenly;
-   height: 100%;
-   width: 100%;
- }
- 
- 
- .workout-duration {
-   display: inline-block;
-   font-size: 150%;
-   padding: 3px;
-   margin: 3px 5px;
-   border: 1px solid #ababab;
-   border-radius: 3px;
-   background: #efefef;
- }
-
- a.workout-title {
-  font-size: xx-large;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #36393f;
+  color: #fff;
 }
 
- 
- #add-workout-button:focus {
-   outline: none;
- }
- 
- /*
-  * Modal stuff
-  */
- 
- #modal-backdrop {
-   position: fixed;
-   top: 0;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   z-index: 1000;
-   background-color: rgba(0, 0, 0, 0.85);
- }
- 
- #add-workout-modal {
-   position: fixed;
-   top: 0;
-   bottom: 0;
-   left: 0;
-   right: 0;
-   z-index: 1010;
-   overflow: scroll;
- }
-
- #do-workout-modal {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1010;
-  overflow: scroll;
-  font-size: x-large;
-}
-
-#exit-save-modal{
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 1010;
-  overflow: scroll;
-}
- 
- .hidden {
-   display: none;
- }
- 
- .modal-dialog {
-   width: auto;
-   max-width: 600px;
-   min-width: 350px;
-   min-height: 300px;
-   margin: 40px auto;
-   background-color: #fff;
-   border-radius: 15px;
- }
- 
- .modal-header {
-   position: relative;
-   padding: 10px 20px;
-   background-color: #2c2b2b;
- }
- 
- .modal-header h3 {
-   margin: 0;
-   font-size: 28px;
-    color: #fff;
- }
- 
- #modal-close {
-   position: absolute;
-   right: 10px;
-   top: 5px;
-   font-size: 24px;
-   border: none;
-   background: none;
-   padding: 0;
-   cursor: pointer;
- }
- 
- .modal-body {
-   padding: 20px;
- }
-
- #do-workout-modal .modal-body {
-  height: 150px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
   padding: 20px;
 }
- 
- .workout-input-element {
-   display: flex;
-   align-items: center;
-   font-size: 20px;
-   margin: 10px 0;
- }
- 
- .workout-input-element > label {
-   font-weight: 600;
-   flex: 1 75px;
-   margin-right: 10px;
- }
- 
- .workout-input-element input {
-   flex: 6 200px;
-   padding: 8px;
-   font-size: 20px;
-   border: 1px solid #aaa;
- }
 
-
- .exercise-name-element {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-size: 1.3em;
-  margin: 10px 0;
-  width: 450px;
+a {
+  text-decoration: none;
+  color: #7289da;
 }
 
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+/* Header Styles */
+header {
+  background-color: #0f1010;
+  padding: 20px 20px; /* Increase the top and bottom padding for a thicker banner */
+  text-align: center;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 42px;
+  color: #fff;
+}
+
+/* Main Content Styles */
+.content {
+  padding: 20px;
+}
+
+#workouts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.workout {
+  position: relative;
+  background-color: #292b2f;
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.workout:hover {
+  background-color: #36393f;
+}
+
+.remove-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 5px;
+  border-radius: 50%;
+  background-color: #dc3545;
+  color: #fff;
+  transition: opacity 0.3s ease;
+}
+
+.remove-button:hover {
+  opacity: 0.8;
+}
+
+.workout-contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.workout-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.workout-duration {
+  font-size: 18px;
+}
+
+/* Quote Section Styles */
+#quote {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #40444b;
+  padding: 50px;
+  text-align: center;
+}
+
+.quoteBlock {
+  display: inline-block;
+  background-color: #2c2f33;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+
+#quote-text {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: #fff;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+#quote-author {
+  font-size: 18px;
+  font-weight: bold;
+  color: #888;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------------------------------ */
+/* Modal Styles */
+.hidden {
+  display: none;
+}
+
+#modal-backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* Modal Styles */
+#add-workout-modal,
+#do-workout-modal,
+#exit-save-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1010;
+  background-color: #f2f2f2;
+  border: 2px solid #222;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 400px;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 20px;
+  color: #222;
+}
+
+.modal-hide-button {
+  background-color: transparent;
+  border: none;
+  color: #222;
+  font-size: 24px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.modal-hide-button:hover {
+  opacity: 0.8;
+}
+
+.modal-body {
+  padding: 20px 0;
+  color: #222;
+}
+
+.exercise-name-element {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.exercise-name-element label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #222;
+  margin-right: 10px;
+}
+
+#exercise-name {
+  font-size: 16px;
+  color: #222;
+}
 
 .time-remaining-element {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  font-size: 1.3em;
-  margin: 10px 0;
-  width: 405px
 }
 
-#do-workout-modal > label {
-  font-weight: 600;
-  flex: 1 75px;
+.time-remaining-element label {
+  font-size: 16px;
+  font-weight: bold;
+  color: #222;
   margin-right: 10px;
 }
- 
- .modal-footer {
-   display: flex;
-   justify-content: flex-end;
-   padding: 10px 10px 20px 10px;
- }
- 
- #modal-cancel,
- #modal-accept {
-   margin-right: 20px;
- }
- 
- #modal-cancel {
-   color: #333;
-   background-color: #fff;
- }
- 
- #modal-cancel:hover {
-   background-color: #eee;
- }
- 
- 
-/* BOTTOM RIGHT BUTTONS */
 
-  #save-exit-button{
+#time-remaining {
+  font-size: 16px;
+  color: #222;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.modal-footer .action-button {
+  background-color: #7289da;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  margin-left: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.modal-footer .action-button:hover {
+  background-color: #677bc4;
+}
+
+/* ------------------------------------------------------------------------------------ */
+
+#remove-workout-button{
+  position:fixed;
+  bottom: 20px;
+  right: 70px;
+
+  color: #fdfcfa;
+  background-color: #b20e08;
+  height: 55px;
+  width: 55px;
+
+  border-radius: 50%;
+  border-width: 0px;
+  transition: background-color 0.3s ease;
+
+  font-size: 150%;
+
+  box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+ }
+
+ #remove-workout-button i{
+   transform: rotate(45deg);
+   transform-origin: center;
+ }
+
+ #remove-workout-button:hover{
+
+  bottom: 17px;
+  right: 67px;
+
+  height: 60px;
+  width: 60px;
+  font-size: 155%;
+
+  cursor: pointer;
+
+ }
+
+
+ /* Bottom right orange button */
+ #add-workout-button{
    position:fixed;
    bottom: 20px;
-   right: 130px;
+   right: 10px;
  
    color: #fdfcfa;
-   background-color: #ff2a00;
+   background-color: #099710;
    height: 55px;
    width: 55px;
+   transition: background-color 0.3s ease;
  
    border-radius: 50%;
    border-width: 0px;
  
    font-size: 150%;
-
-   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
-  }
  
-  #save-exit-button:hover{
+   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+   }
+ 
+   #add-workout-button:hover{
  
    bottom: 17px;
-   right: 130px;
+   right: 7px;
  
    height: 60px;
    width: 60px;
@@ -327,106 +328,5 @@ body {
  
    cursor: pointer;
  
-  }
-
-  #remove-workout-button{
-   position:fixed;
-   bottom: 20px;
-   right: 70px;
- 
-   color: #fdfcfa;
-   background-color: #b20e08;
-   height: 55px;
-   width: 55px;
- 
-   border-radius: 50%;
-   border-width: 0px;
- 
-   font-size: 150%;
-
-   box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
-  }
-
-  #remove-workout-button i{
-    transform: rotate(45deg);
-    transform-origin: center;
-  }
- 
-  #remove-workout-button:hover{
- 
-   bottom: 17px;
-   right: 67px;
- 
-   height: 60px;
-   width: 60px;
-   font-size: 155%;
- 
-   cursor: pointer;
- 
-  }
-
-
-  /* Bottom right orange button */
-  #add-workout-button{
-    position:fixed;
-    bottom: 20px;
-    right: 10px;
-  
-    color: #fdfcfa;
-    background-color: #099710;
-    height: 55px;
-    width: 55px;
-  
-    border-radius: 50%;
-    border-width: 0px;
-  
-    font-size: 150%;
-  
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
-    }
-  
-    #add-workout-button:hover{
-  
-    bottom: 17px;
-    right: 7px;
-  
-    height: 60px;
-    width: 60px;
-    font-size: 175%;
-  
-    cursor: pointer;
-  
-    }
-
-    #quote{
-      width: 600px;
-      height: 100px;
-      background-color: #2c2b2b;
-      border-radius: 15px;
-      padding: 10px;
-      margin: 10px;
-      font-size: 16px;
-      color: #fff;
-      box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
-    }
-
-    .remove-button{
-      position:absolute;
-      top: 0;
-      right: 0;
-    }
-
-    .remove-button i{
-      transform: rotate(45deg);
-      transform-origin: center;
-    }
-
-    .remove-button:hover{
-      cursor: pointer;
-      box-shadow: 0 0 35px var(--red);
-      border: 2px solid var(--red);
-    }
-
-
-
+   }
 
